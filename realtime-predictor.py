@@ -11,7 +11,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 id = 0
 
-names = ['Ansh', 'Anushk', 'Archit', 'Nimisha', 'Priyanshi', 'Raghav','Vanya', 'Tanisha', 'Tarran', 'Srivatsa'] 
+names = ['Ansh', 'Anushk', 'Archit', 'Nimisha', 'Priyanshi', 'Vanya', 'Raghav', 'Tanisha', 'Tarran', 'Srivatsa'] 
 
 # Initialize and start realtime video capture
 cam = cv2.VideoCapture(0)
