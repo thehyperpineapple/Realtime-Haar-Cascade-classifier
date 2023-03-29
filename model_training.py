@@ -5,7 +5,6 @@ import os
 
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-# detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
 # function to get the images and label data
@@ -21,7 +20,7 @@ def getImagesAndLabels(path):
         img_numpy = np.array(PIL_img,'uint8')
 
 
-        id = int(os.path.split(imagePath)[1][:1]) # [[-1].split("_")[1]]
+        id = int(os.path.split(imagePath)[1][:1]) 
         print(id)
         faces = detector.detectMultiScale(img_numpy)
 
@@ -31,14 +30,14 @@ def getImagesAndLabels(path):
 
     return faceSamples,ids
 
-print ("\n [INFO] Training faces. It will take a few seconds. Wait ...")
+print ("\n Training faces.")
 faces,ids = getImagesAndLabels('images')
 print(faces,ids)
 recognizer.train(faces, np.array(ids))
 
-# Save the model into trainer/trainer.yml
-recognizer.write('trainer3.yml') # recognizer.save() worked on Mac, but not on Pi
+# Save the model
+recognizer.write('trainer4.yml')
 
-# Print the numer of faces trained and end program
+# Print the number of unique faces trained and end program
 print("\n {0} faces trained. Exiting Program".format(len(np.unique(ids))))
 
